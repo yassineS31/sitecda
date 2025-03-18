@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Produit</h1>
+    <div>
+        <h2 data-th-text="${ 'Produit : '+ produit.nom }">Produit</h2>
+        <p data-th-text="${'Description : '+ produit.description}">Description</p>
+        <h3 data-th-text="${'Prix' + produit.price + '€'}">Prix</h3>
+    </div>
+</body>
+</html>
