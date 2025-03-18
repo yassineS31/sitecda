@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class ProduitService {
     @Autowired
-    private  ProduitRepository produitRepository;
+    private static ProduitRepository produitRepository;
 
     //Méthode qui trouve un produit via son id
     public Optional<Produit> getById(Long id){
@@ -23,5 +23,8 @@ public class ProduitService {
     public Iterable<Produit> getAll(){
         return produitRepository.findAll();  }
 
+    public static Produit saveProduit(Produit produit){
+        return  produitRepository.save(produit);
+    };
 
 }

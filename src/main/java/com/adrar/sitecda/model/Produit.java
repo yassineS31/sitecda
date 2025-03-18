@@ -1,6 +1,8 @@
 package com.adrar.sitecda.model;
 
 import jakarta.persistence.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Entity
 @Table(name="produit")
@@ -8,13 +10,17 @@ public class Produit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_produit;
+    private Long id;
     @Column(length = 50, nullable = false, name="nom_produit")
     private String nom;
     @Column(length = 50, nullable = false, name="description")
     private String description;
     @Column(length = 50, nullable = false, name="prix")
     private Double price;
+
+    @ManyToOne()
+    @JoinColumn(name="id")
+    private Category category;
 
 
     public Produit() {
@@ -27,11 +33,11 @@ public class Produit {
     }
 
     public Long getId() {
-        return id_produit;
+        return id;
     }
 
     public void setId(Long id) {
-        this.id_produit = id;
+        this.id = id;
     }
 
     public String getNom() {return nom;
@@ -56,4 +62,15 @@ public class Produit {
     public void setPrice(Double price) {
         this.price = price;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+
+
 }

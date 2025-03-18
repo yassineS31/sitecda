@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/produit}" th:object="${produit}" method="post">
+    <div class="form-group">
+        <label for="name">Nom du produit:</label>
+        <input type="text" id="name" th:field="*{name}" class="form-
+control">
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" th:field="*{description}"
+               class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+    <a href="/" class="btn btn-secondary">Accueil</a>
+</form>
+
+</body>
+</html>
